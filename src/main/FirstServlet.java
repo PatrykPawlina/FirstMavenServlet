@@ -1,4 +1,5 @@
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +18,14 @@ public class FirstServlet extends HttpServlet {
 //        Example example of reading text
         resp.setContentType("text/html; charset=utf-8");
         PrintWriter printWriter = resp.getWriter();
+        if (req.getCookies() != null)
+            for (int i = 0; i < req.getCookies().length; i++) {
+                Cookie cookie = req.getCookies()[i];
+                if (cookie.getName().equals("name")) {
+                    printWriter.println("Hello, " + cookie.getValue());
+                    return;
+                }
+            }
         printWriter.println("<html><head><title>My Servlet</title></head>");
         printWriter.println("<body>");
         printWriter.println("<p><h2>This is simple</h></p>");
@@ -32,10 +41,12 @@ public class FirstServlet extends HttpServlet {
         resp.setContentType("text/html; charset=utf-8");
         PrintWriter printWriter = resp.getWriter();
         String name = req.getParameter("name");
-        if (name != null && !"".equals(name)) ;
-        printWriter.println("Witaj, " + name);
-    }
-
+        if (name != null && !"".equals(name)) {
+            Cookie cookie = new Cookie("name", name);
+            cookie.setMaxAge(3600);
+            resp.addCookie(cookie);
+            printWriter.println("Hello, " + name);
+        }
 //      Example of loading a binary file, e.g. a photo
 //        byte[] buffer = loadFile("C:\\Users\\ppawl\\Pictures\\Honor 7\\IMG_20160914_105018.jpg");
 //        resp.setContentType("image/jpg");
@@ -44,6 +55,7 @@ public class FirstServlet extends HttpServlet {
 //        OutputStream outputStream = resp.getOutputStream();
 //        outputStream.write(buffer);
 //        outputStream.flush();
+    }
 
     private byte[] loadFile(String nameFile) throws IOException {
         File file = new File(nameFile);
