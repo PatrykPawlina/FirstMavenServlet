@@ -9,8 +9,8 @@
         <servlet-class>TextServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>First Servlet</servlet-name>
-        <servlet-class>FirstServlet</servlet-class>
+        <servlet-name>First Html Servlet</servlet-name>
+        <servlet-class>TextHtmlServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Photo Servlet</servlet-name>
@@ -21,8 +21,8 @@
         <url-pattern>/text</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>First Servlet</servlet-name>
-        <url-pattern>/myname</url-pattern>
+        <servlet-name>First Html Servlet</servlet-name>
+        <url-pattern>/html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Photo Servlet</servlet-name>

@@ -6,12 +6,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class FirstServlet extends HttpServlet {
+public class TextHtmlServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        Example example of reading text
         resp.setContentType("text/html; charset=utf-8");
         PrintWriter printWriter = resp.getWriter();
+        if (req.getCookies() != null)
+            for (int i = 0; i < req.getCookies().length; i++) {
+                Cookie cookie = req.getCookies()[i];
+                if (cookie.getName().equals("name")) ;
+                printWriter.println("Hello" + cookie.getValue());
+                return;
+            }
         printWriter.println("<html><head><title>My Servlet</title></head>");
         printWriter.println("<body>");
         printWriter.println("<p><h2>This is simple</h></p>");
