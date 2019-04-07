@@ -16,6 +16,10 @@
         <servlet-name>Photo Servlet</servlet-name>
         <servlet-class>PhotoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Remove Cookies Servlet</servlet-name>
+        <servlet-class>RemoveCookiesServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Text Servlet</servlet-name>
         <url-pattern>/text</url-pattern>
@@ -27,5 +31,9 @@
     <servlet-mapping>
         <servlet-name>Photo Servlet</servlet-name>
         <url-pattern>/photo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Remove Cookies Servlet</servlet-name>
+        <url-pattern>/removecookies</url-pattern>
     </servlet-mapping>
 </web-app>

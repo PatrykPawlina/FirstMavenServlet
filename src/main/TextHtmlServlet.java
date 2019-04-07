@@ -15,18 +15,19 @@ public class TextHtmlServlet extends HttpServlet {
         if (req.getCookies() != null)
             for (int i = 0; i < req.getCookies().length; i++) {
                 Cookie cookie = req.getCookies()[i];
-                if (cookie.getName().equals("name")) ;
-                printWriter.println("Hello" + cookie.getValue());
-                return;
+                if (cookie.getName().equals("name")) {
+                    printWriter.println("Hello " + cookie.getValue());
+                    return;
+                }
+                printWriter.println("<html><head><title>My Servlet</title></head>");
+                printWriter.println("<body>");
+                printWriter.println("<p><h2>This is simple</h></p>");
+                printWriter.println("<p><h3>Servlet example.</h3></p>");
+                printWriter.println("<form method=\"post\">");
+                printWriter.println("<p>Give Name:<p><input name=\"name\"/><input type=\"submit\" value=\"OK\"/>");
+                printWriter.println("</form>");
+                printWriter.println("</body></html>");
             }
-        printWriter.println("<html><head><title>My Servlet</title></head>");
-        printWriter.println("<body>");
-        printWriter.println("<p><h2>This is simple</h></p>");
-        printWriter.println("<p><h3>Servlet example.</h3></p>");
-        printWriter.println("<form method=\"post\">");
-        printWriter.println("<p>Give Name:<p><input name=\"name\"/><input type=\"submit\" value=\"OK\"/>");
-        printWriter.println("</form>");
-        printWriter.println("</body></html>");
     }
 
     @Override
