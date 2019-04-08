@@ -4,25 +4,28 @@
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
+    <listener>
+        <listener-class>listener.ContextListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>Text Servlet</servlet-name>
-        <servlet-class>TextServlet</servlet-class>
+        <servlet-class>servlet.TextServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>First Html Servlet</servlet-name>
-        <servlet-class>TextHtmlServlet</servlet-class>
+        <servlet-class>servlet.TextHtmlServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Photo Servlet</servlet-name>
-        <servlet-class>PhotoServlet</servlet-class>
+        <servlet-class>servlet.PhotoServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Remove Cookies Servlet</servlet-name>
-        <servlet-class>RemoveCookiesServlet</servlet-class>
+        <servlet-class>servlet.RemoveCookiesServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Session Servlet</servlet-name>
-        <servlet-class>SessionServlet</servlet-class>
+        <servlet-class>servlet.SessionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Text Servlet</servlet-name>
